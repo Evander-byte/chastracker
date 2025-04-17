@@ -1,6 +1,5 @@
 import colors from "colors"
-import app from "./server"
-
+import app from "./config/server"
 
 const port = process.env.PORT || 4000
 
