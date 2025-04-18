@@ -16,9 +16,11 @@ class Expense extends Model {
     })
     declare amount: number
 
+    //Budget IDs
     @ForeignKey(() => Budget)
     declare budgetId: number
 
+    //Relatation identifyer
     @BelongsTo(() => Budget)
     declare budget: Budget
 }

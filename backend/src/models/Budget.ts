@@ -17,6 +17,7 @@ class Budget extends Model{
     })
     declare amount: number
 
+    //Relation identifier
     @HasMany(() => Expense, {
         //Integrity restrictions
         onUpdate: 'CASCADE',

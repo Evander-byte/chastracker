@@ -1,6 +1,7 @@
 import { Request, Response } from "express"
 import Budget from "../models/Budget"
 import { body } from 'express-validator';
+import Expense from "../models/Expense";
 
 export class BudgetController {
     //Los metodos estaticos no se instancian
@@ -25,11 +26,13 @@ export class BudgetController {
             res.status(201).json('Budget created correctly')
         } catch (error) {
             res.status(500).json({error: "Server Error"})
-
         }
     }
-    static getById = (req: Request, res: Response) => {
-        res.json(req.budget)
+    static getById = async(req: Request, res: Response) => {
+        const budget = await Budget.findByPk(req.budget.id, {
+            include: [Expense]
+        })
+        res.json(budget)
     }
     static updateById = async (req: Request, res: Response) => {
         await req.budget.update(req.body)
