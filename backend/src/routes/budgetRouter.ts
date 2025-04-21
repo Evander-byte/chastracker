@@ -7,6 +7,9 @@ import { validateExpenseExist, validateExpenseId, validateExpenseInput } from ".
 
 const router = Router()
 
+//ROA PATTERN
+
+//Routes for budgets
 router.param('budgetId', validateBudgetID)
 router.param('budgetId', validateBudgetExist)
 
@@ -27,8 +30,6 @@ router.put('/:budgetId',
 router.delete('/:budgetId',BudgetController.deleteById)
 
 //Routes for expenses
-
-//ROA PATTERN
 
 router.post('/:budgetId/expenses', 
     validateExpenseInput,

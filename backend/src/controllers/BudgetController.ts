@@ -1,6 +1,5 @@
 import { Request, Response } from "express"
 import Budget from "../models/Budget"
-import { body } from 'express-validator';
 import Expense from "../models/Expense";
 
 export class BudgetController {
